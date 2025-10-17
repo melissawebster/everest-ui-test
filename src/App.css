@@ -7,6 +7,14 @@
     url("fonts/Montserrat.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Montserrat";
+  font-style: semibold;
+  font-weight: 600;
+  src: local(""), url("assets/fonts/Montserrat.woff2") format("woff2"),
+    url("fonts/Montserrat.woff") format("woff");
+}
+
 :root {
   /* Color variables */
   --color-gunmetal: #313944;

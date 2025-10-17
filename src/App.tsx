@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import "./App.css";
 import Footer from "./components/footer";
-import Main from "./components/main";
+import Main from "./components/main/main";
 
 export default function App() {
   return (
