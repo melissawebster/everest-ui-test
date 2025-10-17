@@ -7,6 +7,7 @@ const App: FC = () => (
     <img className="everest-app__logo" src={everestLogo} alt="Everest logo" />
     <h1 className="everest-app__title">TODO App Challenge</h1>
     <p className="everest-app__docs">Read the instructions to get started!</p>
+    <div>Test</div>
   </div>
 );
 

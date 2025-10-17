@@ -8,4 +8,12 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-})
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+    typecheck: {
+      tsconfig: './tsconfig.vitest.json'
+    }
+  },
+} as any) //ts issue fix
