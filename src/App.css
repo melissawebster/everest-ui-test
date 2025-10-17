@@ -8,6 +8,14 @@
 }
 
 :root {
+  /* Color variables */
+  --color-gunmetal: #313944;
+  --color-charcoal-blue: #262D36;
+  --color-brown: #574E51;
+  --color-steel-blue: #2F87B5;
+  --color-yellow: #FFFD82;
+  --color-red: #FF8284;
+
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -23,11 +31,11 @@
 }
 
 body {
-  background-image: url('./assets/images/img-background.jpg');
-  background-size: cover;        
-  background-position: center;   
-  background-repeat: no-repeat;  
-  min-height: 100vh; 
+  background-image: url("./assets/images/img-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   place-items: center;
@@ -39,6 +47,14 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Colors */
+.bg-gunmetal { background-color: var(--color-gunmetal); }
+.bg-charcoal-blue { background-color: var(--color-charcoal-blue); }
+.bg-brown { background-color: var(--color-brown); }
+.bg-steel-blue { background-color: var(--color-steel-blue); }
+.bg-yellow { background-color: var(--color-yellow); }
+.bg-red { background-color: var(--color-red); }
 
 .everest-app {
   max-width: 1280px;
