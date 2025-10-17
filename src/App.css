@@ -38,9 +38,7 @@ body {
   min-height: 100vh;
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
 }
 
 #root {
@@ -49,6 +47,7 @@ body {
 }
 
 /* Colors */
+.charcoal-blue { color: var(--color-charcoal-blue); }
 .bg-gunmetal { background-color: var(--color-gunmetal); }
 .bg-charcoal-blue { background-color: var(--color-charcoal-blue); }
 .bg-brown { background-color: var(--color-brown); }
@@ -56,29 +55,4 @@ body {
 .bg-yellow { background-color: var(--color-yellow); }
 .bg-red { background-color: var(--color-red); }
 
-.everest-app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.everest-app__logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.everest-app__logo:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-.everest-app__title {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.everest-app__docs {
-  color: #888;
-}

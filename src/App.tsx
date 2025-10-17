@@ -1,14 +1,14 @@
-import { FC } from "react";
-import everestLogo from "/everest-logo.svg";
+import Header from "./components/header";
 import "./App.css";
+import Footer from "./components/footer";
+import Main from "./components/main";
 
-const App: FC = () => (
-  <div className="everest-app">
-    <img className="everest-app__logo" src={everestLogo} alt="Everest logo" />
-    <h1 className="everest-app__title">TODO App Challenge</h1>
-    <p className="everest-app__docs">Read the instructions to get started!</p>
-    <div>Test</div>
-  </div>
-);
-
-export default App;
+export default function App() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  );
+}
