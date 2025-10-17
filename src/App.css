@@ -1,5 +1,14 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("assets/fonts/Montserrat.woff2") format("woff2"),
+    url("fonts/Montserrat.woff") format("woff");
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,6 +23,11 @@
 }
 
 body {
+  background-image: url('./assets/images/img-background.jpg');
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;  
+  min-height: 100vh; 
   margin: 0;
   display: flex;
   place-items: center;
