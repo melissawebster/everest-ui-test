@@ -11,24 +11,26 @@ const ToDoEmpty = () => {
   );
 };
 
-const TodoItem = ({ id, content, checked }: TodoEntry) => {
-  const [isChecked, setIsChecked] = useState(checked);
+type TodoItemProps = TodoEntry & {
+  onToggle: (id: number) => void;
+};
+
+const TodoItem = ({ id, content, checked, onToggle }: TodoItemProps) => {
   return (
     <div
-      className="flex border rounded-md bg-charcoal-blue justify-between p-4"
-      key={id}
+      className={`flex border rounded-md bg-charcoal-blue justify-between p-4`}
     >
       <div className="flex gap-x-3">
         <input
-          type="radio"
-          checked={isChecked}
-          onChange={() => setIsChecked(!isChecked)}
-          className="w-5 h-5 mt-2 cursor-pointer"
+          type="checkbox"
+          checked={checked}
+          onChange={() => onToggle(id)}
+          className="w-5 h-5 mt-2 accent-amber-50 cursor-pointer"
         />
-        <p className="mt-1.5">{content}</p>
+        <p className={`mt-1.5 ${checked && 'opacity-50'}`}>{content}</p>
       </div>
       <div className="flex gap-x-3">
-        <ActionButton type="edit" />
+        {!checked && <ActionButton type="edit" />}
         <ActionButton type="delete" />
       </div>
     </div>
@@ -40,19 +42,25 @@ type ToDoListProps = {
 };
 
 export default function ToDoList({ data }: ToDoListProps) {
+  const [todos, setTodos] = useState([...data]);
+
+  const handleToggle = (id: number) => {
+    setTodos((prev) =>
+      [...prev]
+        .map((item) =>
+          item.id === id ? { ...item, checked: !item.checked } : item
+        )
+        .sort((a, b) => Number(a.checked) - Number(b.checked))
+    );
+  };
+
+  if (todos.length === 0) return <ToDoEmpty />;
+
   return (
-    <div>
-      {data.length === 0 ? (
-        <ToDoEmpty />
-      ) : (
-        <div className="flex flex-col gap-y-4">
-          {data.map((item, index) => (
-            <div key={index}>
-              <TodoItem id={item.id} content={item.content} checked={item.checked} />
-            </div>
-          ))}
-        </div>
-      )}
+    <div className="flex flex-col gap-y-4">
+      {todos.map((item) => (
+        <TodoItem key={item.id} {...item} onToggle={handleToggle} />
+      ))}
     </div>
   );
 }

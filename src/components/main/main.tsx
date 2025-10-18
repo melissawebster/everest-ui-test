@@ -4,6 +4,7 @@ import ToDoList from "./todo-list";
 
 export default function Main() {
   const { todos, loading, error } = useTodos();
+  const sortedTodos = [...todos].sort((a, b) => Number(a.checked) - Number(b.checked));
   return (
     <main
       className="flex-1 mx-auto mt-[56px] md:[64px] lg:mt-[72px] container bg-gunmetal flex flex-col 
@@ -14,7 +15,7 @@ export default function Main() {
         <ToDoHeader />
         {error && <p>{error}</p>}
         {!error && loading && <p>Loading...</p>}
-        {!error && !loading && <ToDoList data={todos} />}
+        {!error && !loading && <ToDoList data={sortedTodos} />}
       </div>
     </main>
   );
