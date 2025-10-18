@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TodoEntry } from "../../types/types";
+import { TodoEntry, TodoList } from "../../types/types";
 import { ActionButton } from "./action-buttons";
 
 const ToDoEmpty = () => {
@@ -14,7 +14,10 @@ const ToDoEmpty = () => {
 const TodoItem = ({ id, content, checked }: TodoEntry) => {
   const [isChecked, setIsChecked] = useState(checked);
   return (
-    <div className="flex border rounded-md bg-charcoal-blue justify-between p-4" key={id}>
+    <div
+      className="flex border rounded-md bg-charcoal-blue justify-between p-4"
+      key={id}
+    >
       <div className="flex gap-x-3">
         <input
           type="radio"
@@ -22,9 +25,7 @@ const TodoItem = ({ id, content, checked }: TodoEntry) => {
           onChange={() => setIsChecked(!isChecked)}
           className="w-5 h-5 mt-2 cursor-pointer"
         />
-        <p className="mt-1.5">
-          {content}
-        </p>
+        <p className="mt-1.5">{content}</p>
       </div>
       <div className="flex gap-x-3">
         <ActionButton type="edit" />
@@ -34,6 +35,24 @@ const TodoItem = ({ id, content, checked }: TodoEntry) => {
   );
 };
 
-export default function ToDoList() {
-  return <TodoItem id={1} content="example" checked={false} />;
+type ToDoListProps = {
+  data: TodoList;
+};
+
+export default function ToDoList({ data }: ToDoListProps) {
+  return (
+    <div>
+      {data.length === 0 ? (
+        <ToDoEmpty />
+      ) : (
+        <div className="flex flex-col gap-y-4">
+          {data.map((item, index) => (
+            <div key={index}>
+              <TodoItem id={item.id} content={item.content} checked={item.checked} />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
