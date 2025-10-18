@@ -1,10 +1,19 @@
+import { useState } from "react";
 import { useTodos } from "../../hooks/useTodos";
 import ToDoHeader from "./todo-header";
 import ToDoList from "./todo-list";
+import { TodoEntry } from "../../types/types";
 
 export default function Main() {
   const { todos, loading, error } = useTodos();
   const sortedTodos = [...todos].sort((a, b) => Number(a.checked) - Number(b.checked));
+  
+  const [newTodo, setNewTodo] = useState<TodoEntry | undefined>(undefined);
+
+  const handleAddTodo = (value: TodoEntry) => {
+    setNewTodo(value);
+  };
+
   return (
     <main
       className="flex-1 mx-auto mt-[56px] md:[64px] lg:mt-[72px] container bg-gunmetal flex flex-col 
@@ -12,10 +21,10 @@ export default function Main() {
       md:border-brown pt-4 pb-12 px-5 md:px-12"
     >
       <div className="flex flex-col gap-y-10 mt-6 -m-2 md:mt-8 ">
-        <ToDoHeader />
+        <ToDoHeader onAdd={handleAddTodo} />
         {error && <p>{error}</p>}
         {!error && loading && <p>Loading...</p>}
-        {!error && !loading && <ToDoList data={sortedTodos} />}
+        {!error && !loading && <ToDoList data={sortedTodos} newTodo={newTodo} />}
       </div>
     </main>
   );

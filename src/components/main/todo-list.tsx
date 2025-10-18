@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TodoEntry, TodoList } from "../../types/types";
 import { ActionButton } from "./action-buttons";
 
@@ -17,9 +17,7 @@ type TodoItemProps = TodoEntry & {
 
 const TodoItem = ({ id, content, checked, onToggle }: TodoItemProps) => {
   return (
-    <div
-      className={`flex border rounded-md bg-charcoal-blue justify-between p-4`}
-    >
+    <div className="flex border rounded-md bg-charcoal-blue justify-between p-4">
       <div className="flex gap-x-3">
         <input
           type="checkbox"
@@ -27,7 +25,7 @@ const TodoItem = ({ id, content, checked, onToggle }: TodoItemProps) => {
           onChange={() => onToggle(id)}
           className="w-5 h-5 mt-2 accent-amber-50 cursor-pointer"
         />
-        <p className={`mt-1.5 ${checked && 'opacity-50'}`}>{content}</p>
+        <p className={`mt-1.5 ${checked && "opacity-50"}`}>{content}</p>
       </div>
       <div className="flex gap-x-3">
         {!checked && <ActionButton type="edit" />}
@@ -39,10 +37,13 @@ const TodoItem = ({ id, content, checked, onToggle }: TodoItemProps) => {
 
 type ToDoListProps = {
   data: TodoList;
+  newTodo?: TodoEntry;
 };
 
-export default function ToDoList({ data }: ToDoListProps) {
+export default function ToDoList({ data, newTodo }: ToDoListProps) {
   const [todos, setTodos] = useState([...data]);
+
+  console.log(todos)
 
   const handleToggle = (id: number) => {
     setTodos((prev) =>
@@ -53,6 +54,15 @@ export default function ToDoList({ data }: ToDoListProps) {
         .sort((a, b) => Number(a.checked) - Number(b.checked))
     );
   };
+
+  useEffect(() => {
+    if (newTodo) {
+      setTodos((prev) =>
+        [...prev, newTodo].sort((a, b) => Number(a.checked) - Number(b.checked))
+      );
+    }
+  }, [newTodo]);
+
 
   if (todos.length === 0) return <ToDoEmpty />;
 
