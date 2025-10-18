@@ -1,4 +1,4 @@
-export default function MainHeader() {
+export default function ToDoHeader() {
   return (
     <div className="flex flex-col gap-y-3">
       <h1 className="font-semibold text-lg md:text-xl">

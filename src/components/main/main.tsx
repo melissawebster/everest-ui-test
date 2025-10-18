@@ -1,5 +1,5 @@
-import MainHeader from "./main-header";
-import MainList from "./main-list";
+import ToDoHeader from "./todo-header";
+import ToDoList from "./todo-list";
 
 export default function Main() {
   return (
@@ -10,8 +10,8 @@ export default function Main() {
       py-3 px-4 sm:px-6 md:px-12"
     >
       <div className="flex flex-col gap-y-4 mt-6 -m-2 md:mt-8 ">
-        <MainHeader />
-        <MainList />
+        <ToDoHeader />
+        <ToDoList />
       </div>
     </main>
   );
