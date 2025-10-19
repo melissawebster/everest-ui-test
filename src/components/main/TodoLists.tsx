@@ -1,27 +1,65 @@
 import { TodoEntry, TodoList } from "../../types/types";
 import { DeleteButton } from "./DeleteButton";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 type TodoItemProps = TodoEntry & {
   onToggle: (id: number) => void;
   onDelete: (id: number) => void;
 };
 
-const TodoItem = ({ id, content, checked, onToggle, onDelete }: TodoItemProps) => (
-  <div className="flex border rounded-md bg-charcoal-blue justify-between p-4">
-    <div className="flex gap-x-3">
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={() => onToggle(id)}
-        className="w-5 h-5 mt-2 accent-amber-50 cursor-pointer"
-      />
-      <p className={`mt-1.5 ${checked && "opacity-50"}`}>{content}</p>
+const TodoItem = ({
+  id,
+  content,
+  checked,
+  onToggle,
+  onDelete,
+}: TodoItemProps) => {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="flex rounded-md bg-slate-800"
+    >
+      <div className="flex border rounded-l-md bg-charcoal-blue justify-between w-full p-4">
+        <div className="flex items-center gap-x-3">
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={() => onToggle(id)}
+            className="w-5 h-5 mt-2 accent-amber-50 cursor-pointer"
+          />
+          <p className={`mt-1.5 ${checked ? "opacity-50 line-through" : ""}`}>
+            {content}
+          </p>
+        </div>
+        <div className="flex gap-x-2 items-center">
+          <DeleteButton id={id} onDel={() => onDelete(id)} />
+        </div>
+      </div>
+
+      {/* Drag handle for all items */}
+      <button
+        {...attributes}
+        {...listeners}
+        className={`cursor-grab p-1 border rounded-r text-white w-10 hover:opacity-80 ${
+          checked ? "opacity-50" : ""
+        }`}
+        aria-label="Drag handle"
+      >
+        &#x2630;
+      </button>
     </div>
-    <div className="flex gap-x-3">
-      <DeleteButton id={id} onDel={() => onDelete(id)} />
-    </div>
-  </div>
-);
+  );
+};
 
 type ToDoListsProps = {
   type: "unchecked" | "checked";
@@ -30,7 +68,20 @@ type ToDoListsProps = {
   onDelete: (id: number) => void;
 };
 
-export default function ToDoLists({ type, data, onToggle, onDelete }: ToDoListsProps) {
+export default function ToDoLists({
+  type,
+  data,
+  onToggle,
+  onDelete,
+}: ToDoListsProps) {
+  if (data.length === 0)
+    return (
+      <div className="flex flex-col min-h-40 border border-dashed rounded-md justify-center items-center">
+        <p>Nothing here for now.</p>
+        <p>Let&apos;s change that!</p>
+      </div>
+    );
+
   return (
     <section className="flex flex-col gap-y-2">
       <div className="flex justify-between text-amber-200">
