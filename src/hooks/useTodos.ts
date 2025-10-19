@@ -17,7 +17,8 @@ export function useTodos() {
             typeof item.content === "string" &&
             typeof item.checked === "boolean"
         );
-        setTodos(validTodos);
+        const sortedTodos = [...validTodos].sort((a, b) => Number(a.checked) - Number(b.checked));
+        setTodos(sortedTodos);
         setLoading(false);
       })
       .catch((err) => {

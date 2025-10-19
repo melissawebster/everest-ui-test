@@ -6,8 +6,6 @@ import { TodoEntry } from "../../types/types";
 
 export default function Main() {
   const { todos, loading, error } = useTodos();
-  const sortedTodos = [...todos].sort((a, b) => Number(a.checked) - Number(b.checked));
-  
   const [newTodo, setNewTodo] = useState<TodoEntry | undefined>(undefined);
 
   const handleAddTodo = (value: TodoEntry) => {
@@ -24,7 +22,7 @@ export default function Main() {
         <ToDoHeader onAdd={handleAddTodo} />
         {error && <p>{error}</p>}
         {!error && loading && <p>Loading...</p>}
-        {!error && !loading && <ToDoList data={sortedTodos} newTodo={newTodo} />}
+        {!error && !loading && <ToDoList data={todos} newTodo={newTodo} />}
       </div>
     </main>
   );
