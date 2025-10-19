@@ -48,7 +48,7 @@ const TodoItem = ({
       <button
         {...attributes}
         {...listeners}
-        className={`cursor-grab p-1 border rounded-r text-white w-15 md:w-10 hover:opacity-80 ${
+        className={`cursor-grab p-1 border rounded-r text-white select-none w-15 md:w-10 hover:opacity-80 ${
           checked ? "opacity-50" : ""
         }`}
         aria-label="Drag handle"

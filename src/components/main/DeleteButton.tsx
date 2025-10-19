@@ -14,7 +14,7 @@ export const DeleteButton = ({ id, onDel }: DeleteButtonProps) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center justify-center rounded-md cursor-pointer hover:opacity-80 bg-red w-10 md:w-8 h-10 md:h-8"
+        className="flex items-center justify-center rounded-md cursor-pointer select-none hover:opacity-80 bg-red w-10 md:w-8 h-10 md:h-8"
         aria-label="delete"
       >
         <img src={icon} alt="delete icon" className="w-5.5 h-5.5 md:w-5 md:h-5" />
@@ -33,13 +33,13 @@ export const DeleteButton = ({ id, onDel }: DeleteButtonProps) => {
             <div className="flex justify-end gap-4">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-3 py-1 bg-steel-blue border text-white rounded-md font-semibold"
+                className="px-3 py-1 bg-steel-blue border select-none text-white rounded-md font-semibold"
               >
                 Cancel
               </button>
               <button
                 onClick={() => onDel(id)}
-                className="px-3 py-1 bg-red border border-white rounded-md text-slate-800 font-semibold"
+                className="px-3 py-1 bg-red border border-white select-none rounded-md text-slate-800 font-semibold"
               >
                 Confirm
               </button>
