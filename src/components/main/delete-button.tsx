@@ -27,7 +27,7 @@ export const DeleteButton = ({ id, onDel: onDelete }: DeleteButtonProps) => {
           <div
             className="bg-gunmetal rounded-xl p-6 w-80 shadow-lg"
           >
-            <h2 className="text-lg font-semibold mb-4">Are you sure?</h2>
+            <h3 className="text-lg font-semibold mb-4">Are you sure?</h3>
             <p className="mb-6">This action cannot be undone.</p>
 
             <div className="flex justify-end gap-4">
