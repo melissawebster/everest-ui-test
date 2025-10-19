@@ -72,7 +72,7 @@ export default function ToDoList({ data, newTodo }: ToDoListProps) {
   useEffect(() => {
     if (newTodo) {
       setTodos((prev) =>
-        [...prev, newTodo].sort((a, b) => Number(a.checked) - Number(b.checked))
+        [newTodo, ...prev]
       );
     }
   }, [newTodo]);
@@ -81,34 +81,38 @@ export default function ToDoList({ data, newTodo }: ToDoListProps) {
 
   return (
     <div className="flex flex-col gap-y-8">
-      {/* Unchecked items */}
-      <ul className="flex flex-col gap-y-4">
-        {todos
-          .filter((item) => !item.checked)
-          .map((item) => (
-            <li key={item.id}>
-              <TodoItem
-                {...item}
-                onToggle={handleToggle}
-                onDelete={handleDelete}
-              />
-            </li>
-          ))}
-      </ul>
-      {/* Checked items */}
-      <ul className="flex flex-col gap-y-4 opacity-70">
-        {todos
-          .filter((item) => item.checked)
-          .map((item) => (
-            <li key={item.id}>
-              <TodoItem
-                {...item}
-                onToggle={handleToggle}
-                onDelete={handleDelete}
-              />
-            </li>
-          ))}
-      </ul>
+      <section className="flex flex-col gap-y-2">
+        <h2 className="font-semibold text-amber-200">To Do</h2>
+        <ul className="flex flex-col gap-y-4">
+          {todos
+            .filter((item) => !item.checked)
+            .map((item) => (
+              <li key={item.id}>
+                <TodoItem
+                  {...item}
+                  onToggle={handleToggle}
+                  onDelete={handleDelete}
+                />
+              </li>
+            ))}
+        </ul>
+      </section>
+      <section className="flex flex-col gap-y-2">
+        <h2 className="font-semibold text-amber-200">Done</h2>
+        <ul className="flex flex-col gap-y-4 opacity-70">
+          {todos
+            .filter((item) => item.checked)
+            .map((item) => (
+              <li key={item.id}>
+                <TodoItem
+                  {...item}
+                  onToggle={handleToggle}
+                  onDelete={handleDelete}
+                />
+              </li>
+            ))}
+        </ul>
+      </section>
     </div>
   );
 }
