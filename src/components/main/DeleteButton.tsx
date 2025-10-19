@@ -6,7 +6,7 @@ type DeleteButtonProps = {
   onDel: (id: number) => void;
 };
 
-export const DeleteButton = ({ id, onDel: onDelete }: DeleteButtonProps) => {
+export const DeleteButton = ({ id, onDel }: DeleteButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const icon = deleteIcon;
 
@@ -38,7 +38,7 @@ export const DeleteButton = ({ id, onDel: onDelete }: DeleteButtonProps) => {
                 Cancel
               </button>
               <button
-                onClick={() => onDelete(id)}
+                onClick={() => onDel(id)}
                 className="px-3 py-1 bg-red border border-white rounded-md text-slate-800 font-semibold"
               >
                 Confirm

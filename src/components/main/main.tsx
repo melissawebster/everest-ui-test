@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTodos } from "../../hooks/useTodos";
-import ToDoHeader from "./todo-header";
-import ToDoList from "./todo-list";
+import ToDoHeader from "./TodoHeader";
+import ToDoBody from "./TodoBody";
 import { TodoEntry } from "../../types/types";
 
 export default function Main() {
@@ -22,7 +22,7 @@ export default function Main() {
         <ToDoHeader onAdd={handleAddTodo} />
         {error && <p>{error}</p>}
         {!error && loading && <p>Loading...</p>}
-        {!error && !loading && <ToDoList data={todos} newTodo={newTodo} />}
+        {!error && !loading && <ToDoBody data={todos} newTodo={newTodo} />}
       </div>
     </main>
   );

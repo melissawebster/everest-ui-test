@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TodoEntry, TodoList } from "../../types/types";
-import { DeleteButton } from "./delete-button";
+import { DeleteButton } from "./DeleteButton";
 
 const ToDoEmpty = () => {
   return (
@@ -41,76 +41,72 @@ const TodoItem = ({
   );
 };
 
-type ToDoListProps = {
+type ToDoBodyProps = {
   data: TodoList;
   newTodo?: TodoEntry;
 };
 
-export default function ToDoList({ data, newTodo }: ToDoListProps) {
+export default function ToDoBody({ data, newTodo }: ToDoBodyProps) {
   const [todos, setTodos] = useState([...data]);
-
-  console.log(todos);
 
   const handleToggle = (id: number) => {
     setTodos((prev) =>
-      [...prev]
-        .map((item) =>
-          item.id === id ? { ...item, checked: !item.checked } : item
-        )
-        .sort((a, b) => Number(a.checked) - Number(b.checked))
+      [...prev].map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item
+      )
     );
   };
 
   const handleDelete = (id: number) => {
-    setTodos((prev) =>
-      prev
-        .filter((item) => item.id !== id)
-        .sort((a, b) => Number(a.checked) - Number(b.checked))
-    );
+    setTodos((prev) => prev.filter((item) => item.id !== id));
   };
 
   useEffect(() => {
     if (newTodo) {
-      setTodos((prev) =>
-        [newTodo, ...prev]
-      );
+      setTodos((prev) => [newTodo, ...prev]);
     }
   }, [newTodo]);
+
+  const uncheckedTodos = todos.filter((item) => !item.checked);
+  const checkedTodos = todos.filter((item) => item.checked);
 
   if (todos.length === 0) return <ToDoEmpty />;
 
   return (
     <div className="flex flex-col gap-y-8">
       <section className="flex flex-col gap-y-2">
-        <h2 className="font-semibold text-amber-200">To Do</h2>
+        <div className="flex justify-between text-amber-200">
+          <h2 className="font-semibold ml-1">To Do</h2>
+          <div className="mr-1">{uncheckedTodos.length} items</div>
+        </div>
+
         <ul className="flex flex-col gap-y-4">
-          {todos
-            .filter((item) => !item.checked)
-            .map((item) => (
-              <li key={item.id}>
-                <TodoItem
-                  {...item}
-                  onToggle={handleToggle}
-                  onDelete={handleDelete}
-                />
-              </li>
-            ))}
+          {uncheckedTodos.map((item) => (
+            <li key={item.id}>
+              <TodoItem
+                {...item}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+              />
+            </li>
+          ))}
         </ul>
       </section>
       <section className="flex flex-col gap-y-2">
-        <h2 className="font-semibold text-amber-200">Done</h2>
+        <div className="flex justify-between text-amber-200">
+          <h2 className="font-semibold ml-1">Done</h2>
+          <div className="mr-1">{checkedTodos.length} items</div>
+        </div>
         <ul className="flex flex-col gap-y-4 opacity-70">
-          {todos
-            .filter((item) => item.checked)
-            .map((item) => (
-              <li key={item.id}>
-                <TodoItem
-                  {...item}
-                  onToggle={handleToggle}
-                  onDelete={handleDelete}
-                />
-              </li>
-            ))}
+          {checkedTodos.map((item) => (
+            <li key={item.id}>
+              <TodoItem
+                {...item}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+              />
+            </li>
+          ))}
         </ul>
       </section>
     </div>
