@@ -55,7 +55,14 @@ const TodoItem = ({
         }`}
         aria-label="drag handle"
       >
-        <img src={dragIcon} alt="drag icon" className="w-6 h-6" draggable={false} />
+        <span className="pointer-events-none select-none">
+          <img
+            src={dragIcon}
+            alt="drag icon"
+            className="w-6 h-6"
+            draggable={false}
+          />
+        </span>
       </button>
     </div>
   );
