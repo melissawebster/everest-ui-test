@@ -49,12 +49,13 @@ const TodoItem = ({
       <button
         {...attributes}
         {...listeners}
+        onTouchStart={(e) => e.preventDefault()}
         className={`flex items-center justify-center cursor-grab p-1 border rounded-r text-white select-none touch-none w-15 md:w-10 hover:opacity-80 ${
           checked ? "opacity-50" : ""
         }`}
         aria-label="drag handle"
       >
-        <img src={dragIcon} alt="drag icon" className="w-6 h-6" />
+        <img src={dragIcon} alt="drag icon" className="w-6 h-6" draggable={false} />
       </button>
     </div>
   );
