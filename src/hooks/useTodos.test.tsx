@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import Main from "../components/main/Main";
+import Main from "../components/main/main";
 import { vi } from "vitest";
 
 describe("API", () => {
