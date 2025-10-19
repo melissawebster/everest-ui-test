@@ -4,7 +4,7 @@ import ToDoHeader from "./TodoHeader";
 import ToDoBody from "./TodoBody";
 import { TodoEntry } from "../../types/types";
 
-export default function Main() {
+export default function MainContent() {
   const { todos, loading, error } = useTodos();
   const [newTodo, setNewTodo] = useState<TodoEntry | undefined>(undefined);
 
