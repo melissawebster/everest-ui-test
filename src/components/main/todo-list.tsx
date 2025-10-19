@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TodoEntry, TodoList } from "../../types/types";
-import { ActionButton } from "./action-buttons";
+import { DeleteButton } from "./action-buttons";
 
 const ToDoEmpty = () => {
   return (
@@ -28,8 +28,7 @@ const TodoItem = ({ id, content, checked, onToggle }: TodoItemProps) => {
         <p className={`mt-1.5 ${checked && "opacity-50"}`}>{content}</p>
       </div>
       <div className="flex gap-x-3">
-        {!checked && <ActionButton type="edit" />}
-        <ActionButton type="delete" />
+        <DeleteButton />
       </div>
     </div>
   );

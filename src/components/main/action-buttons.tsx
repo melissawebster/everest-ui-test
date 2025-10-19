@@ -1,20 +1,16 @@
-import editIcon from "/src/assets/icons/edit.svg";
 import deleteIcon from "/src/assets/icons/delete.svg";
 
-type ActionButtonProps = {
-  type: 'edit' | 'delete';
-};
 
-export const ActionButton = ({ type }: ActionButtonProps) => {
-  const icon = type === 'edit' ? editIcon : deleteIcon;
-  const bgColor = type === 'edit' ? 'bg-yellow-400' : 'bg-red-400';
+
+export const DeleteButton = () => {
+  const icon = deleteIcon;
 
   return (
     <button
-      className={`${bgColor} p-2 rounded-md cursor-pointer hover:opacity-80 transition`}
-      aria-label={type}
+      className="flex items-center justify-center rounded-md cursor-pointer hover:opacity-80 bg-red w-8 h-8"
+      aria-label="delete"
     >
-      <img src={icon} alt={`${type} icon`} className="w-5 h-5" />
+      <img src={icon} alt="delete icon" className="w-5 h-5" />
     </button>
   );
 };
