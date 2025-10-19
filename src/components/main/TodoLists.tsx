@@ -2,6 +2,7 @@ import { TodoEntry, TodoList } from "../../types/types";
 import { DeleteButton } from "./DeleteButton";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import dragIcon from "/src/assets/icons/drag.svg";
 
 type TodoItemProps = TodoEntry & {
   onToggle: (id: number) => void;
@@ -48,12 +49,12 @@ const TodoItem = ({
       <button
         {...attributes}
         {...listeners}
-        className={`cursor-grab p-1 border rounded-r text-white select-none w-15 md:w-10 hover:opacity-80 ${
+        className={`flex items-center justify-center cursor-grab p-1 border rounded-r text-white select-none w-15 md:w-10 hover:opacity-80 ${
           checked ? "opacity-50" : ""
         }`}
         aria-label="Drag handle"
       >
-        &#x2630;
+        <img src={dragIcon} alt="drag icon" className="w-6 h-6" />
       </button>
     </div>
   );
