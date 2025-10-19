@@ -14,10 +14,10 @@ export const DeleteButton = ({ id, onDel }: DeleteButtonProps) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center justify-center rounded-md cursor-pointer hover:opacity-80 bg-red w-8 h-8"
+        className="flex items-center justify-center rounded-md cursor-pointer hover:opacity-80 bg-red w-10 md:w-8 h-10 md:h-8"
         aria-label="delete"
       >
-        <img src={icon} alt="delete icon" className="w-5 h-5" />
+        <img src={icon} alt="delete icon" className="w-5.5 h-5.5 md:w-5 md:h-5" />
       </button>
 
       {isOpen && (
