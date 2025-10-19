@@ -36,7 +36,7 @@ const TodoItem = ({
             type="checkbox"
             checked={checked}
             onChange={() => onToggle(id)}
-            className="w-5 h-5 mt-2 accent-amber-50 cursor-pointer"
+            className="w-5 h-5 mt-2 bg-amber-50 cursor-pointer"
           />
           <p className={`mt-1.5 ${checked ? "opacity-50 line-through" : ""}`}>
             {content}
@@ -50,9 +50,7 @@ const TodoItem = ({
         {...attributes}
         {...listeners}
         onTouchStart={(e) => e.preventDefault()}
-        className={`flex items-center justify-center cursor-grab p-1 border rounded-r text-white select-none touch-none w-15 md:w-10 hover:opacity-80 ${
-          checked ? "opacity-50" : ""
-        }`}
+        className={`flex items-center justify-center cursor-grab p-1 border rounded-r text-white select-none touch-none w-15 md:w-10 hover:opacity-80`}
         aria-label="drag handle"
       >
         <span className="pointer-events-none select-none">
