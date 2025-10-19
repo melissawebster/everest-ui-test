@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TodoEntry, TodoList } from "../../types/types";
-import { DeleteButton } from "./action-buttons";
+import { DeleteButton } from "./delete-button";
 
 const ToDoEmpty = () => {
   return (
@@ -42,7 +42,7 @@ type ToDoListProps = {
 export default function ToDoList({ data, newTodo }: ToDoListProps) {
   const [todos, setTodos] = useState([...data]);
 
-  console.log(todos)
+  console.log(todos);
 
   const handleToggle = (id: number) => {
     setTodos((prev) =>
@@ -62,14 +62,31 @@ export default function ToDoList({ data, newTodo }: ToDoListProps) {
     }
   }, [newTodo]);
 
-
   if (todos.length === 0) return <ToDoEmpty />;
 
   return (
-    <div className="flex flex-col gap-y-4">
-      {todos.map((item) => (
-        <TodoItem key={item.id} {...item} onToggle={handleToggle} />
-      ))}
-    </div>
-  );
+  <div className="flex flex-col gap-y-8">
+    {/* Unchecked items */}
+    <ul className="flex flex-col gap-y-4">
+      {todos
+        .filter((item) => !item.checked)
+        .map((item) => (
+          <li key={item.id}>
+            <TodoItem {...item} onToggle={handleToggle} />
+          </li>
+        ))}
+    </ul>
+    {/* Checked items */}
+    <ul className="flex flex-col gap-y-4 opacity-70">
+      {todos
+        .filter((item) => item.checked)
+        .map((item) => (
+          <li key={item.id}>
+            <TodoItem {...item} onToggle={handleToggle} />
+          </li>
+        ))}
+    </ul>
+  </div>
+);
+
 }

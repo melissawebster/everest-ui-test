@@ -1,7 +1,5 @@
 import deleteIcon from "/src/assets/icons/delete.svg";
 
-
-
 export const DeleteButton = () => {
   const icon = deleteIcon;
 
