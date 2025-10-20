@@ -65,8 +65,11 @@ body {
 .bg-yellow { background-color: var(--color-yellow); }
 .bg-red { background-color: var(--color-red); }
 
-.border-brown {
-  border-left: 6px solid var(--color-brown);
-  border-right: 6px solid var(--color-brown);
+@media (min-width: 768px) { 
+  .border-brown {
+    border-left: 12px solid var(--color-brown);
+    border-right: 12px solid var(--color-brown);
+  }
 }
+
 
