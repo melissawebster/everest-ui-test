@@ -4,6 +4,15 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import dragIcon from "/src/assets/icons/drag.svg";
 
+const EmptyData = () => {
+  return (
+    <div className="flex flex-col min-h-25 border border-dashed rounded-md justify-center items-center">
+      <p>Nothing here for now.</p>
+      <p>Let&apos;s change that!</p>
+    </div>
+  );
+};
+
 type TodoItemProps = TodoEntry & {
   onToggle: (id: number) => void;
   onDelete: (id: number) => void;
@@ -79,14 +88,6 @@ export default function ToDoLists({
   onToggle,
   onDelete,
 }: ToDoListsProps) {
-  if (data.length === 0)
-    return (
-      <div className="flex flex-col min-h-40 border border-dashed rounded-md justify-center items-center">
-        <p>Nothing here for now.</p>
-        <p>Let&apos;s change that!</p>
-      </div>
-    );
-
   return (
     <section className="flex flex-col gap-y-2">
       <div className="flex justify-between text-amber-200">
@@ -95,13 +96,17 @@ export default function ToDoLists({
         </h2>
         <div className="mr-1">{data.length} items</div>
       </div>
-      <ul className="flex flex-col gap-y-4">
-        {data.map((item) => (
-          <li key={item.id}>
-            <TodoItem {...item} onToggle={onToggle} onDelete={onDelete} />
-          </li>
-        ))}
-      </ul>
+      {data.length === 0 ? (
+        <EmptyData />
+      ) : (
+        <ul className="flex flex-col gap-y-4">
+          {data.map((item) => (
+            <li key={item.id}>
+              <TodoItem {...item} onToggle={onToggle} onDelete={onDelete} />
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }
