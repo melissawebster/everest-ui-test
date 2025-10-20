@@ -33,7 +33,7 @@ export default function ToDoBody({ data, newTodo }: ToDoBodyProps) {
     const { active, over } = event;
     if (!over || active.id === over.id) return;
 
-    let list = listType === "unchecked" ? uncheckedTodos : checkedTodos;
+    const list = listType === "unchecked" ? uncheckedTodos : checkedTodos;
     const oldIndex = list.findIndex((t) => t.id === active.id);
     const newIndex = list.findIndex((t) => t.id === over.id);
 

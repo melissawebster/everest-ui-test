@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [
     react(),
@@ -16,4 +17,4 @@ export default defineConfig({
       tsconfig: './tsconfig.vitest.json'
     }
   },
-} as any) //ts issue fix
+} as any) 
