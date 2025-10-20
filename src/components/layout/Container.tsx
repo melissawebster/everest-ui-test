@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useTodos } from "../../hooks/useTodos";
-import ToDoHeader from "./TodoHeader";
-import ToDoBody from "./TodoBody";
+import ToDoHeader from "../todos/TodoHeader";
+import ToDoBody from "../todos/TodoBody";
 import { TodoEntry } from "../../types/types";
 
-export default function MainContent() {
+export default function Container() {
   const { todos, loading, error } = useTodos();
   const [newTodo, setNewTodo] = useState<TodoEntry | undefined>(undefined);
 

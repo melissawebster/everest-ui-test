@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import MainContent from "../components/main/MainContent";
+import Container from "../components/layout/Container";
 import { vi } from "vitest";
 
 describe("API", () => {
@@ -9,7 +9,7 @@ describe("API", () => {
       Promise.reject(new Error("Failed to fetch"))
     ) as any;
 
-    render(<MainContent />);
+    render(<Container />);
 
     await waitFor(() => {
       expect(

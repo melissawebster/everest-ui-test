@@ -1,12 +1,12 @@
 import deleteIcon from "/src/assets/icons/delete.svg";
 import { useState } from "react";
 
-type DeleteButtonProps = {
+type DeleteActionProps = {
   id: number;
   onDel: (id: number) => void;
 };
 
-export const DeleteButton = ({ id, onDel }: DeleteButtonProps) => {
+export const DeleteAction = ({ id, onDel }: DeleteActionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const icon = deleteIcon;
 

@@ -30,6 +30,7 @@ export default function ToDoHeader({onAdd} : ToDoHeaderProps) {
           type="text"
           placeholder="Type what you’re up to..."
           value={value}
+          maxLength={250}
           onChange={(e) => setValue(e.target.value)}
           className={`h-11 px-4 border rounded-l-md bg-charcoal-blue w-full md:w-3/4 lg:w-1/2`}
         />

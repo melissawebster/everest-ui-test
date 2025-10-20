@@ -48,7 +48,7 @@ export default function ToDoBody({ data, newTodo }: ToDoBodyProps) {
 
   return (
     <div className="flex flex-col gap-y-8">
-      {/* Unchecked draggable list */}
+
       <DndContext collisionDetection={closestCenter} onDragEnd={(e) => handleDragEnd(e, "unchecked")}>
         <SortableContext items={uncheckedTodos.map((t) => t.id)} strategy={verticalListSortingStrategy}>
           <ToDoLists
@@ -60,7 +60,6 @@ export default function ToDoBody({ data, newTodo }: ToDoBodyProps) {
         </SortableContext>
       </DndContext>
 
-      {/* Checked draggable list */}
       <DndContext collisionDetection={closestCenter} onDragEnd={(e) => handleDragEnd(e, "checked")}>
         <SortableContext items={checkedTodos.map((t) => t.id)} strategy={verticalListSortingStrategy}>
           <ToDoLists

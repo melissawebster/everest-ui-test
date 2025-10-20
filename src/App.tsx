@@ -1,13 +1,13 @@
-import Header from "./components/Header";
+import Header from "./components/layout/Header";
 import "./App.css";
-import Footer from "./components/Footer";
-import MainContent from "./components/main/MainContent";
+import Footer from "./components/layout/Footer";
+import Container from "./components/layout/Container";
 
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <MainContent />
+      <Container />
       <Footer />
     </div>
   );
