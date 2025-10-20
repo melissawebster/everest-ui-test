@@ -2,7 +2,7 @@ import everestLogo from "/everest-logo.svg";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white h-16 lg:h-18 ">
+    <header className="fixed top-0 left-0 right-0 z-50 header-bg h-16 lg:h-18 ">
       <div
         className="container flex mx-auto items-center justify-center md:justify-start 
         max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 
