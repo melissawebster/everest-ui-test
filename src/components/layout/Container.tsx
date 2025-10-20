@@ -18,7 +18,7 @@ export default function Container() {
       max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 
       border-brown pt-4 pb-12 px-5 md:px-12"
     >
-      <div className="flex flex-col gap-y-10 mt-6 -m-2 md:mt-8 ">
+      <div className="flex flex-col gap-y-8 mt-6 -m-2 md:mt-8 ">
         <ToDoHeader onAdd={handleAddTodo} />
         {error && <p>{error}</p>}
         {!error && loading && <p>Loading...</p>}
