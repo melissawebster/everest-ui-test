@@ -1,19 +1,17 @@
 ![Everest Logo](public/everest-logo.svg?raw=true "Everest Logo")
 
-# TODO App Challenge
+# Evertask
 
-Instructions for the implementation can be found in the [INSTRUCTIONS](./INSTRUCTIONS.md) doc.
+Assessment for Everest Systems - a simple and responsive to-do list app built with React + TypeScript + Tailwind CSS.
 
-## Starting the app for the first time
+I created a Figma design beforehand to visualize the user experience: <br/>
+https://shorturl.at/wJgxg
 
-### `yarn install`
+It is also deployed on Vercel: <br />
+https://everest-ui-test-psi.vercel.app/
 
-This will install all the dependencies of the project defined in `package.json`. Whenever that file changes, you will also need to re-run this command to make sure all packages are updated.
-
-### `yarn start`
-
-Opens a browser tab pointing to [http://localhost:5173](http://localhost:5173).
-
-- Runs the app in the development mode.
-- The page will reload if you make edits.
-- You will also see any typing and lint errors in the console.
+✨ Additional Features:
+- Fully responsive design for mobile, tablet, and desktop
+- Unit and integration testing with Vitest
+- Drag-and-drop functionality powered by DND Kit
+- Dynamic task counter for each list
