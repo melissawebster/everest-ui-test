@@ -31,7 +31,7 @@ export const TodoItem = ({
       style={style}
       className="flex rounded-md bg-slate-800"
     >
-      <div className="flex border border-slate-600 rounded-l-md bg-charcoal justify-between w-full p-4">
+      <div className="flex border border-slate-400 rounded-l-md bg-charcoal justify-between w-full p-4">
         <div className="flex items-center gap-x-3">
           <input
             type="checkbox"
@@ -51,7 +51,7 @@ export const TodoItem = ({
         {...attributes}
         {...listeners}
         onTouchStart={(e) => e.preventDefault()}
-        className={`flex items-center justify-center cursor-grab p-1 border border-slate-600 rounded-r text-white select-none touch-none w-15 md:w-10 hover:opacity-80`}
+        className={`flex items-center justify-center cursor-grab p-1 border border-slate-400 rounded-r text-white select-none touch-none w-15 md:w-10 hover:opacity-80`}
         aria-label="drag handle"
       >
         <span className="pointer-events-none select-none">
