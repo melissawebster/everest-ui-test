@@ -5,7 +5,7 @@
 Assessment for Everest Systems - a simple and responsive to-do list app built with React + TypeScript + Tailwind CSS.
 
 I created a Figma design beforehand to visualize the user experience: <br/>
-https://shorturl.at/wJgxg
+https://shorturl.at/6WLhQ
 
 It is also deployed on Vercel: <br />
 https://everest-ui-test-psi.vercel.app/
