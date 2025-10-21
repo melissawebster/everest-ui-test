@@ -30,7 +30,7 @@ export const DeleteAction = ({ id, onDel }: DeleteActionProps) => {
 
       {isOpen && (
         <div className="fixed inset-0 flex justify-center items-start pt-[50%] md:pt-[30%] lg:pt-[15%] bg-black/50">
-          <div className="bg-gunmetal rounded-xl p-6 w-80 shadow-lg">
+          <div className="bg-charcoal rounded-xl p-6 w-80 shadow-lg">
             <h3 className="text-lg font-semibold mb-4">Are you sure?</h3>
             <p className="mb-6">This action cannot be undone.</p>
 
