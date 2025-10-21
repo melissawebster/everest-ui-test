@@ -22,7 +22,7 @@ export default function ToDoHeader({onAdd} : ToDoHeaderProps) {
 
   return (
     <div className="flex flex-col gap-y-3">
-      <h1 className="font-semibold text-lg md:text-xl">
+      <h1 className="font-semibold text-lg text-amber-200 md:text-xl">
         What do you want to do today?
       </h1>
       <form onSubmit={handleSubmit} className="flex">
@@ -32,9 +32,9 @@ export default function ToDoHeader({onAdd} : ToDoHeaderProps) {
           value={value}
           maxLength={250}
           onChange={(e) => setValue(e.target.value)}
-          className={`h-11 px-4 border rounded-l-md bg-charcoal-blue w-full md:w-3/4 lg:w-1/2`}
+          className={`h-11 px-4 border border-slate-600 rounded-l-md bg-charcoal w-full md:w-3/4 lg:w-1/2`}
         />
-        <button type="submit" disabled={!value} className={`h-11 px-4 border rounded-r-md select-none bg-steel-blue hover:opacity-90 cursor-pointer`}>
+        <button type="submit" disabled={!value} className={`h-11 px-4 border border-slate-600 rounded-r-md select-none bg-steel-blue hover:opacity-90 cursor-pointer`}>
           Add
         </button>
       </form>

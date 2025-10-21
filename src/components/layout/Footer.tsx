@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="h-18 bg-charcoal-blue flex border-t-3">
+    <footer className="h-18 flex border-t bg-charcoal">
       <div
         className="container flex mx-auto items-center justify-center 
         max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 
