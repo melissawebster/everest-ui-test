@@ -14,7 +14,7 @@ export const DeleteAction = ({ id, onDel }: DeleteActionProps) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center justify-center rounded-md cursor-pointer select-none touch-none hover:opacity-80 bg-red w-10 md:w-8 h-10 md:h-8"
+        className="flex items-center justify-center rounded-md cursor-pointer select-none touch-none hover:opacity border-del-red w-10 md:w-8 h-10 md:h-8"
         aria-label="delete button"
         onTouchStart={(e) => e.preventDefault()}
       >

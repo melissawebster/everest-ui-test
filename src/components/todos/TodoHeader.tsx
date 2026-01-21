@@ -36,8 +36,8 @@ export default function ToDoHeader({onAdd} : ToDoHeaderProps) {
           onChange={(e) => setValue(e.target.value)}
           className={`h-11 px-4 border border-slate-400 rounded-l-md bg-charcoal w-full md:w-3/4 lg:w-1/2`}
         />
-        <button type="submit" disabled={isDisabled} className={`h-11 px-4 border border-slate-400 rounded-r-md select-none bg-steel-blue hover:opacity-90 cursor-pointer`}>
-          Add
+        <button type="submit" disabled={isDisabled} className={`h-11 px-4 border border-slate-400 rounded-r-md select-none border-bright-blue hover:opacity-90 cursor-pointer`}>
+          <span className="bright-blue">Add task</span>
         </button>
       </form>
     </div>

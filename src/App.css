@@ -19,7 +19,8 @@
   /* Color variables */
   --color-charcoal: #2D2D2D;
   --color-steel-blue: #2F87B5;
-  --color-red: #FF8284;
+  --color-bright-blue: #82E6FF;
+  --color-delete-red: #FF8284;
 
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -52,6 +53,7 @@ body {
 
 /* Colors */
 .charcoal { color: var(--color-charcoal); }
+.bright-blue { color: var(--color-bright-blue); }
 .bg-charcoal { background-color: var(--color-charcoal); }
 .bg-steel-blue { background-color: var(--color-steel-blue); }
 .bg-red { background-color: var(--color-red); }
@@ -63,4 +65,11 @@ body {
   background-repeat: no-repeat;
 }
 
+.border-del-red {
+  border: 1px solid #FF8284;
+}
+
+.border-bright-blue {
+  border: 1px solid #82E6FF;
+}
 

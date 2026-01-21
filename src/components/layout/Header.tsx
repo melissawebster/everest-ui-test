@@ -6,7 +6,7 @@ export default function Header() {
       <div
         className="container flex mx-auto items-center justify-center md:justify-start 
         max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 
-        h-16 lg:h-18 py-3 px-4 sm:px-6 md:px-12 shadow-2xl"
+        h-16 lg:h-18 py-3 px-4 sm:px-6 md:px-12"
       >
         <div className="flex gap-x-2 items-center">
           <img
@@ -19,7 +19,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
     </header>
   );
 }
