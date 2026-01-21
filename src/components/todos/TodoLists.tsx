@@ -20,14 +20,14 @@ export default function ToDoLists({
     <section className="flex flex-col gap-y-2">
       <div className="flex justify-between text-amber-200">
         <h2 className="font-semibold ml-1">
-          {type === "unchecked" ? "To Do" : "Done"}
+          {type === "unchecked" ? "Pending list" : "Done list"}
         </h2>
         <div className="mr-1">{data.length} items</div>
       </div>
       {data.length === 0 ? (
         <EmptyData />
       ) : (
-        <ul className="flex flex-col gap-y-4">
+        <ul className="flex flex-col">
           {data.map((item) => (
             <li key={item.id}>
               <TodoItem {...item} onToggle={onToggle} onDelete={onDelete} />

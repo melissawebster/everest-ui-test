@@ -29,10 +29,10 @@ export const TodoItem = ({
     <div
       ref={setNodeRef}
       style={style}
-      className="flex rounded-md bg-slate-800"
+      className="flex rounded-md bg-charcoal"
     >
-      <div className="flex border border-slate-400 rounded-l-md bg-charcoal justify-between w-full p-4">
-        <div className="flex items-center gap-x-3">
+      <div className="flex border border-slate-400 rounded-l-md bg-charcoal justify-between w-full p-3">
+        <div className="flex mb-0.5 ml-1 items-center gap-x-3">
           <input
             type="checkbox"
             checked={checked}

@@ -25,12 +25,12 @@ export default function ToDoHeader({onAdd} : ToDoHeaderProps) {
   return (
     <div className="flex flex-col gap-y-3">
       <h1 className="font-semibold text-lg text-amber-200 md:text-xl">
-        What do you want to do today?
+        What are you up to?
       </h1>
       <form onSubmit={handleSubmit} className="flex">
         <input
           type="text"
-          placeholder="Type what you’re up to..."
+          placeholder="Type..."
           value={value}
           maxLength={250}
           onChange={(e) => setValue(e.target.value)}
