@@ -2,16 +2,34 @@
 
 # Evertask
 
-Assessment for Everest Systems - a simple and responsive to-do list app built with React + TypeScript + Tailwind CSS.
+Figma project: https://shorturl.at/6WLhQ <br/>
 
-I created a Figma design beforehand to visualize the user experience: <br/>
-https://shorturl.at/6WLhQ
+Deployment on Vercel: https://everest-ui-test-psi.vercel.app/ <br />
 
-It is also deployed on Vercel: <br />
-https://everest-ui-test-psi.vercel.app/
+<hr /> 
 
-✨ Additional Features:
-- Fully responsive design for mobile, tablet, and desktop
-- Unit and integration testing with Vitest
-- Drag-and-drop functionality powered by DND Kit
-- Dynamic task counter for each list
+📌 Project Overview
+
+This project was developed as a technical assessment, applying usability and interface design principles. The goal was to keep the interface simple and intuitive, allowing users to create, view, and manage tasks efficiently with minimal cognitive friction.
+
+🧩 Product Type
+
+Web App / SaaS
+
+👥 Target Audience
+
+Users who need to organize their daily tasks
+
+⏱️ Constraints
+
+◇ Short development timeline<br />
+◇ Limited project scope<br />
+
+✨ Features:<br />
+
+◇ Fully responsive design for mobile, tablet, and desktop<br />
+◇ Drag-and-drop functionality powered by DND Kit<br />
+◇ Unit and integration testing with Vitest<br />
+◇ Task counter for each list<br />
+
+
