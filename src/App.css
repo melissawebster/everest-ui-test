@@ -56,7 +56,7 @@ body {
 .bright-blue { color: var(--color-bright-blue); }
 .bg-charcoal { background-color: var(--color-charcoal); }
 .bg-steel-blue { background-color: var(--color-steel-blue); }
-.bg-red { background-color: var(--color-red); }
+.bg-red { background-color: var(--color-delete-red); }
 
 .header-bg {
   background-image: url('/header-bg.png');
